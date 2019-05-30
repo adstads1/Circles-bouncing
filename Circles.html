@@ -1,0 +1,95 @@
+<html>
+
+<body>
+  <canvas id="myCanvas" width="1900px" height="950px" style="border: 1px solid #000;"></canvas>
+
+  <script>
+    /*Different objects have different attributes and properties that we can work with
+         // alert("hey why you leaving?!?!");//pop up
+         //document.write("<strong>hey there</strong>");//document is an object. write is a method. paranthesis are the parameters. Allows you to write onthe web page 
+         //console.log("thing here of note");//Logs to console for debugging.
+         //console.warn("thing here of warn");//console warn. Amber light
+         //console.error("thing here of error");//console error. Red light
+         //document.getElementById("modMe").value="something else";
+         //document.getElementById("modMe").innerHTML="something else";//innerHTML, property sets or returns the HTML content (inner HTML) of an element. 
+    */
+
+    const canvas = document.getElementById("myCanvas");
+    const context = canvas.getContext("2d");
+    const blobCount = 30;
+    const colors = new Array(
+      "red",
+      "orange",
+      "green",
+      "blue",
+      "purple",
+      "yellow",
+      "pink"
+    );
+
+    let blobs = new Array();
+
+    let x = 50;
+    let y = 50;
+
+    let xChange = 1;
+    let yChange = 1;
+
+    class Blob {
+      constructor(color, size) {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.color = color;
+        this.size = size;
+        this.xChange = Math.random();
+        this.yChange = Math.random();
+      }
+
+      move() {
+        if (this.x >= canvas.width || this.x <= 0) {
+          this.xChange *= -1; //flips. 1*-1=-1.
+        }
+
+        if (this.y >= canvas.height || this.y <= 0) {
+          this.yChange *= -1; //flips. 1*-1=-1.
+        }
+
+        this.x += this.xChange;
+        this.y += this.yChange;
+      }
+
+      draw() {
+        context.beginPath(); //starts the path.Picks the pen up
+        context.arc(this.x, this.y, this.size, 0, 2 * Math.PI); //x,y,r, starting angle, ending angle
+        context.fillStyle = this.color;
+        context.fill();
+        context.stroke(); //draws
+      }
+    }
+
+    function randomChoice(arr) {
+      return arr[Math.floor(Math.random() * arr.length)]; //Returns a random choice.
+    }
+
+    for (let i = 0; i < blobCount; i++) {
+      let randomColor = randomChoice(colors);
+      blobs.push(new Blob(randomColor,
+        25)); //add blobs to the array. New element to an array is using the push() method
+    }
+
+    function canvasDraw() {
+      context.clearRect(0, 0, canvas.width, canvas.height); //clears the canvas
+
+      blobs.forEach(function (obj) {
+        //obj is an object. obj is a temporary name to each of the elements in blobs.
+        obj.draw();
+        obj.move();
+      });
+    }
+
+    setInterval(canvasDraw, 1);
+
+  </script>
+</body>
+
+</html>
