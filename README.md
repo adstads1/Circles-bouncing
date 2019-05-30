@@ -1,4 +1,4 @@
-# Circles-bouncing
+# Circles-bouncing program
 A simple satisfying JavaScript program that developed my JavaScript knowledge.
 The program has 20 circles that move around of a screen of a dimension of 1900px by 950px, or designed for an aspect ratio of 16:9.
 The balls have different colors, move around independently and have been positioned at different areas of the canvas randomly.
