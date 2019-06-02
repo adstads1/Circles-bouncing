@@ -8,6 +8,6 @@ This project solified my knowledge of:
 * Immediately Invoked Function Expression (which I researched due to my project but not implemented in my program)
 * Classes, functions, properties, object literals, constructors
 * Basic principles of WebGL
-* Integration of HTML elements with JavaScript
+* For loops and if statements.
 
 Feel free to use and implement the program.
