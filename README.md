@@ -7,7 +7,7 @@ This project solified my knowledge of:
 * The JavaScript syntax
 * Immediately Invoked Function Expression (which I researched due to my project but not implemented in my program)
 * Classes, functions, properties, object literals, constructors
-* Basic principles of WebGl
+* Basic principles of WebGL
 * Integration of HTML elements with JavaScript
 
 Feel free to use and implement the program.
